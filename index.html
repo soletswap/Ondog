@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ondog Space — Uzay Maceraları Koleksiyonu</title>
+  <meta name="description" content="Ondog Space: Topluluk odaklı, güvenli ve eğlenceli uzay maceraları. Koalisyona katıl, çoklu likidite havuzları stratejisini keşfet, ücretsiz nadir NFT'leri kaçırma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/ondog-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">
+        <img src="assets/ondog-logo.png" alt="Ondog Space Logosu" width="40" height="40" />
+        <span>Ondog Space</span>
+      </a>
+      <nav class="nav">
+        <a href="#features">Güvenlik</a>
+        <a href="#mission">Misyon</a>
+        <a href="#coalition">Koalisyon</a>
+        <a href="#gallery">Koleksiyon</a>
+        <a href="#faq">SSS</a>
+        <a class="btn btn-primary" href="#join">Koalisyona Katıl</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Galaktik Köpek Maskotu: Ondog</h1>
+        <p>Adil lansman, kalıcı likidite ve çoklu havuz yaklaşımıyla güvenli finansı; hikâye anlatımı ve ücretsiz nadir NFT’lerle topluluk eğlencesini birleştiriyoruz.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#coalition">Koalisyonu Keşfet</a>
+          <a class="btn btn-outline" href="#features">Güvenlik Özellikleri</a>
+        </div>
+        <ul class="badges">
+          <li>Adil Lansman</li>
+          <li>LP Yakıldı</li>
+          <li>Raydium CLMM</li>
+          <li>Marka Tescilli</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="assets/ondog-hero.jpg" alt="Uzay zırhlı, pelerinli Ondog kahraman illüstrasyonu" />
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Çekirdek Lansman ve Güvenlik Özellikleri</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Adil Lansman</h3>
+          <p>Ön satış yok. Likidite havuzuna doğrudan eklenerek başlatıldı.</p>
+        </article>
+        <article class="card">
+          <h3>Kalıcı Likidite</h3>
+          <p>Ana LP havuzu lansmanda yakıldı. Geri çekilemez ve kalıcı güven sağlar.</p>
+        </article>
+        <article class="card">
+          <h3>Raydium CLMM</h3>
+          <p>Konsantre Likidite havuzu başlatıldı ve o da yakıldı.</p>
+        </article>
+        <article class="card">
+          <h3>Marka Koruması</h3>
+          <p>İsim ve logo tescilli. Uzun vadeli vizyon ve itibar güvencesi.</p>
+        </article>
+        <article class="card">
+          <h3>Çoklu Likidite Havuzları</h3>
+          <p>Dikkat çekmek ve fırsatlar yaratmak için birden fazla havuz ile akıcı ticaret deneyimi.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="mission" class="section alt">
+    <div class="container two-col">
+      <div>
+        <h2>Ondog’un Misyonu: Macera ve Güven</h2>
+        <ul class="checklist">
+          <li><b>Topluluk inşası:</b> Uzay maceralarını düzenli olarak paylaşarak güvenilir ve aktif bir topluluk.</li>
+          <li><b>Etkileşimli içerik:</b> Sürekli görevler, uzay güncelleri ve eğlenceli hikâyeler.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Gelecek Vizyonu ve Büyüme</h3>
+        <ul class="checklist">
+          <li><b>Organik büyüme (multi-pool):</b> Sürekli dikkat ve arbitraj ile kendini besleyen havuzlar.</li>
+          <li><b>Kalıcı pazar konumu:</b> Uzun vadeli ve sürdürülebilir likidite yapısı.</li>
+          <li><b>Özel NFT’ler:</b> Ondog maceralarını betimleyen nadir NFT’ler topluluğa ücretsiz dağıtılacak.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="coalition" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Ondog Koalisyonu</h2>
+        <p>Uzayın dört bir yanından kâşifler, geliştiriciler, sanatçılar ve topluluk liderleri aynı çatı altında. Şeffaflık, güvenlik ve eğlence ilkelerinde birleşiyoruz.</p>
+      </div>
+
+      <div class="pillbar" role="tablist" aria-label="Koalisyon filtreleri">
+        <button class="pill active" data-filter="all" role="tab" aria-selected="true">Tümü</button>
+        <button class="pill" data-filter="dev" role="tab" aria-selected="false">Geliştirici</button>
+        <button class="pill" data-filter="creator" role="tab" aria-selected="false">İçerik/Sanat</button>
+        <button class="pill" data-filter="defi" role="tab" aria-selected="false">DeFi/Ekosistem</button>
+      </div>
+
+      <div class="partners" id="partners">
+        <!-- Örnek partner kartları; dilediğince çoğalt -->
+        <article class="partner-card" data-tags="dev defi">
+          <img src="assets/ondog-logo.png" alt="Ondog Partner Rozeti" />
+          <h3>Raydium Allies</h3>
+          <p>CLMM entegrasyonu ve likidite stratejileri üzerine işbirliği.</p>
+          <div class="meta"><span>Tip: DeFi</span><span>Durum: Aktif</span></div>
+        </article>
+        <article class="partner-card" data-tags="creator">
+          <img src="assets/ondog-logo.png" alt="Ondog Partner Rozeti" />
+          <h3>Galactic Artists</h3>
+          <p>Ondog maceralarını nadir NFT’lere dönüştüren sanat kolektifi.</p>
+          <div class="meta"><span>Tip: Sanat</span><span>Durum: Açık</span></div>
+        </article>
+        <article class="partner-card" data-tags="dev">
+          <img src="assets/ondog-logo.png" alt="Ondog Partner Rozeti" />
+          <h3>Explorer Guild</h3>
+          <p>Topluluk araçları, izleme panelleri ve bot geliştirme.</p>
+          <div class="meta"><span>Tip: Geliştirici</span><span>Durum: Başvuru</span></div>
+        </article>
+      </div>
+
+      <div id="join" class="join-box">
+        <h3>Koalisyona Katıl</h3>
+        <p>Projeni/ekibini kısaca tanıt, nasıl katkı sunacağını belirt. İnceleme sonrası ekibe dönüş yapılır.</p>
+        <form id="joinForm" class="join-form">
+          <label>
+            Proje/Ekip Adı
+            <input type="text" name="name" required placeholder="Örn. Star Builders" />
+          </label>
+          <label>
+            Kategori
+            <select name="category" required>
+              <option value="dev">Geliştirici</option>
+              <option value="creator">İçerik/Sanat</option>
+              <option value="defi">DeFi/Ekosistem</option>
+            </select>
+          </label>
+          <label>
+            Kısa Açıklama
+            <textarea name="desc" rows="3" required placeholder="Katkınızı 1-2 cümleyle anlatın"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Başvuru Gönder</button>
+          <p class="form-note">Form demo amaçlıdır; veriler tarayıcıda önizlenir.</p>
+        </form>
+        <div id="preview" class="preview" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section alt">
+    <div class="container">
+      <h2>Ondog Uzay Maceraları Koleksiyonu</h2>
+      <div class="gallery">
+        <a href="assets/ondog-hero.jpg" class="shot">
+          <img src="assets/ondog-hero.jpg" alt="Ondog kahraman sahnesi" />
+        </a>
+        <a href="assets/ondog-logo.png" class="shot">
+          <img src="assets/ondog-logo.png" alt="Ondog logo rozeti" />
+        </a>
+        <!-- Yeni görseller ekledikçe bu kalıbı kopyala -->
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Sıkça Sorulanlar</h2>
+      <details open>
+        <summary>Gerçekten adil lansman mı?</summary>
+        <p>Evet. Ön satış yapılmadı; token doğrudan havuza likidite eklenerek piyasaya sürüldü.</p>
+      </details>
+      <details>
+        <summary>Likiditeyi neden yaktınız?</summary>
+        <p>Kalıcı güven sağlamak, çekiş riskini ortadan kaldırmak ve uzun vadeli topluluk odağı için.</p>
+      </details>
+      <details>
+        <summary>Multi-pool yaklaşımı nasıl organik büyüme sağlar?</summary>
+        <p>Birden fazla havuz, sürekli dikkat ve arbitraj fırsatları oluşturur; bu da havuzların canlılığını besler.</p>
+      </details>
+      <details>
+        <summary>Ücretsiz NFT’ler ne zaman?</summary>
+        <p>Topluluk kilometre taşlarına göre parti parti dağıtım planlanır. Duyurular sosyal kanallardan yapılır.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <img src="assets/ondog-logo.png" alt="Ondog Space Logosu" width="36" height="36" />
+        <strong>Ondog Space</strong>
+      </div>
+      <nav class="socials">
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="Discord">Discord</a>
+        <a href="#" aria-label="Docs">Docs</a>
+      </nav>
+      <small>© Ondog Space — Tüm hakları saklıdır.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
