@@ -48,7 +48,7 @@
         </ul>
       </div>
       <div class="hero-art">
-        <img src="assets/ondog-hero.jpg" alt="Uzay zırhlı, pelerinli Ondog kahraman illüstrasyonu" />
+        <img id="hero-img" src="assets/ondog-hero.jpg" alt="Uzay zırhlı, pelerinli Ondog kahraman illüstrasyonu" data-fallback="assets/ondog-hero.jpg" />
       </div>
     </div>
   </section>
@@ -168,14 +168,14 @@
   <section id="gallery" class="section alt">
     <div class="container">
       <h2>Ondog Uzay Maceraları Koleksiyonu</h2>
-      <div class="gallery">
-        <a href="assets/ondog-hero.jpg" class="shot">
-          <img src="assets/ondog-hero.jpg" alt="Ondog kahraman sahnesi" />
-        </a>
-        <a href="assets/ondog-logo.png" class="shot">
-          <img src="assets/ondog-logo.png" alt="Ondog logo rozeti" />
-        </a>
-        <!-- Yeni görseller ekledikçe bu kalıbı kopyala -->
+      <div class="gallery" id="dynamic-gallery">
+        <!-- Noscript fallback -->
+        <noscript>
+          <a href="assets/ondog-logo.png" class="shot">
+            <img src="assets/ondog-logo.png" alt="Ondog logo" />
+          </a>
+        </noscript>
+        <!-- Yeni görseller GitHub Issues'dan otomatik yüklenecek -->
       </div>
     </div>
   </section>
