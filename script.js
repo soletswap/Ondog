@@ -83,8 +83,8 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
   const REPO_NAME = 'Ondog';
   const REF = 'main';
 
-  // Hem eski yol (Doc/images/collections) hem de doğrudan Doc kökünü destekle
-  const CANDIDATE_PATHS = ['Doc/images/collections', 'Doc'];
+  // Hem Doc kökü hem de isteğe bağlı eski yol desteklenir
+  const CANDIDATE_PATHS = ['Doc', 'Doc/images/collections'];
 
   const gallery = document.getElementById('dynamic-gallery');
   if (!gallery) return;
@@ -107,7 +107,7 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
         }
       }
 
-      // 2) Alt klasörlerdeki görseller (ör. Doc/<koleksiyon>/*.jpg)
+      // 2) Alt klasörlerdeki görseller (ör. Doc/<koleksiyon>/*.jpg veya Doc/images/collections/<koleksiyon>/*.jpg)
       for (const dir of entries) {
         if (dir.type !== 'dir') continue;
         const files = await listDirSafe(`${base}/${dir.name}`);
@@ -131,7 +131,6 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
       gallery.innerHTML = '';
       if (noscript) gallery.appendChild(noscript);
 
-      // Koleksiyona ve dosya adına göre sırala
       items.sort((a,b) => a.collection.localeCompare(b.collection) || a.name.localeCompare(b.name));
 
       for (const it of items) {
