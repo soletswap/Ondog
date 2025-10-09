@@ -89,13 +89,13 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
 
   try {
     // Koleksiyon klasörlerini listele
-    const collections = await listDir(`${BASE_PATH}`);
+    const collections = await listDir(BASE_PATH).catch(() => []);
     const dirs = (collections || []).filter(x => x.type === 'dir');
 
     // Her koleksiyon klasöründeki görselleri topla
     let items = [];
     for (const dir of dirs) {
-      const files = await listDir(`${BASE_PATH}/${dir.name}`);
+      const files = await listDir(`${BASE_PATH}/${dir.name}`).catch(() => []);
       const imgs = (files || []).filter(f => isImage(f.name));
       for (const f of imgs) {
         items.push({
@@ -112,7 +112,7 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
       gallery.innerHTML = '';
       if (noscript) gallery.appendChild(noscript);
 
-      // İsteğe bağlı: koleksiyona göre sırala
+      // Koleksiyona ve dosya adına göre sırala
       items.sort((a,b) => a.collection.localeCompare(b.collection) || a.name.localeCompare(b.name));
 
       for (const it of items) {
@@ -148,7 +148,9 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
   }
 
   async function listDir(path) {
-    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodeURIComponent(path)}?ref=${REF}`;
+    // Her segmenti encode edin, slash'ları koruyun
+    const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodedPath}?ref=${REF}`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`GitHub contents API hata: ${res.status}`);
     return res.json();
