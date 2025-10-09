@@ -82,27 +82,46 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
   const REPO_OWNER = 'soletswap';
   const REPO_NAME = 'Ondog';
   const REF = 'main';
-  const BASE_PATH = 'Doc/images/collections';
+
+  // Hem eski yol (Doc/images/collections) hem de doğrudan Doc kökünü destekle
+  const CANDIDATE_PATHS = ['Doc/images/collections', 'Doc'];
 
   const gallery = document.getElementById('dynamic-gallery');
   if (!gallery) return;
 
   try {
-    // Koleksiyon klasörlerini listele
-    const collections = await listDir(BASE_PATH).catch(() => []);
-    const dirs = (collections || []).filter(x => x.type === 'dir');
-
-    // Her koleksiyon klasöründeki görselleri topla
     let items = [];
-    for (const dir of dirs) {
-      const files = await listDir(`${BASE_PATH}/${dir.name}`).catch(() => []);
-      const imgs = (files || []).filter(f => isImage(f.name));
-      for (const f of imgs) {
-        items.push({
-          url: f.download_url || toRawUrl(f.path),
-          collection: dir.name,
-          name: f.name
-        });
+
+    for (const base of CANDIDATE_PATHS) {
+      const entries = await listDirSafe(base);
+      if (!entries) continue;
+
+      // 1) Kökteki görseller (ör. Doc/*.jpg)
+      for (const e of entries) {
+        if (e.type === 'file' && isImage(e.name)) {
+          items.push({
+            url: e.download_url || toRawUrl(e.path),
+            collection: base.split('/').pop() || 'root',
+            name: e.name
+          });
+        }
+      }
+
+      // 2) Alt klasörlerdeki görseller (ör. Doc/<koleksiyon>/*.jpg)
+      for (const dir of entries) {
+        if (dir.type !== 'dir') continue;
+        const files = await listDirSafe(`${base}/${dir.name}`);
+        if (!files) continue;
+
+        for (const f of files) {
+          if (f.type === 'file' && isImage(f.name)) {
+            items.push({
+              url: f.download_url || toRawUrl(f.path),
+              collection: dir.name,
+              name: f.name
+            });
+          }
+        }
       }
     }
 
@@ -154,6 +173,11 @@ document.querySelectorAll('.gallery .shot').forEach(a => {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`GitHub contents API hata: ${res.status}`);
     return res.json();
+  }
+
+  async function listDirSafe(path) {
+    try { return await listDir(path); }
+    catch { return null; }
   }
 
   function toRawUrl(path) {
