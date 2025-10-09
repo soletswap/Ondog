@@ -7,9 +7,10 @@ Tüm görseller depoda `Doc` klasörü altında tutulur.
 Dizin yapısı:
 ```
 Doc/
+  ondog-logo.png     # Logo (kökte)
+  ondog-hero.jpg     # Hero görseli (kökte)
   images/
-    logo/          # Marka/ürün logoları
-    collections/   # Koleksiyon görselleri; her koleksiyon ayrı bir alt klasör
+    collections/     # Koleksiyon görselleri; her koleksiyon ayrı bir alt klasör
       space/
         space-01.jpg
         space-02.jpg
@@ -21,12 +22,12 @@ Kullanım örnekleri:
 
 - Kök README’den logo:
   ```markdown
-  ![Ondog logo](./Doc/images/logo/ondog-logo.png)
+  ![Ondog logo](./Doc/ondog-logo.png)
   ```
 
 - Kök HTML dosyasından:
   ```html
-  <img src="Doc/images/logo/ondog-logo.png" alt="Ondog logo" />
+  <img src="Doc/ondog-logo.png" alt="Ondog logo" />
   <img src="Doc/images/collections/space/space-01.jpg" alt="Space 01" />
   ```
 
