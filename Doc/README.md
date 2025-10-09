@@ -1,3 +1,4 @@
+
 # Doc Klasörü
 
 Bu klasör, Ondog projesi için görselleri barındırır.
@@ -5,9 +6,10 @@ Bu klasör, Ondog projesi için görselleri barındırır.
 ## Yapı
 
 ```
+ondog-logo.png      # Logo
+ondog-hero.jpg      # Hero görseli
 images/
-  logo/          # Marka/ürün logoları
-  collections/   # Her koleksiyon ayrı alt klasör
+  collections/      # Her koleksiyon ayrı alt klasör
     <koleksiyon-adi>/
       <koleksiyon-adi>-01.jpg
       <koleksiyon-adi>-02.jpg
@@ -23,12 +25,12 @@ images/
 
 - Kök README:
   ```markdown
-  ![Ondog logo](./Doc/images/logo/ondog-logo.png)
+  ![Ondog logo](./Doc/ondog-logo.png)
   ![Space 01](./Doc/images/collections/space/space-01.jpg)
   ```
 
 - Kök HTML (index.html vb.):
   ```html
-  <img src="Doc/images/logo/ondog-logo.png" alt="Ondog logo" />
+  <img src="Doc/ondog-logo.png" alt="Ondog logo" />
   <img src="Doc/images/collections/space/space-01.jpg" alt="Space 01" />
   ```
