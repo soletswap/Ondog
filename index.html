@@ -6,36 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Oppo Kiss Me is a community-driven meme token on Solana. Fair launch, burned LP, Raydium CLMM, multi-pool growth." />
   <meta name="theme-color" content="#0b0f19" />
-  <style>
-    :root { --bg:#0b0f19; --panel:#0e1422; --border:#1e2638; --text:#e6e8ee; --muted:#9aa4b2; --accent:#1867ff; }
-    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{background:linear-gradient(180deg,rgba(24,103,255,.15),rgba(24,103,255,0) 60%);border-bottom:1px solid var(--border);padding:36px 0 12px}
-    h1{margin:0 0 8px;font-size:clamp(24px,3vw,36px)}
-    .muted{color:var(--muted)}
-    .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 16px;border-radius:10px;border:1px solid #1153d1;font-weight:600}
-    .row{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px}
-    @media(min-width:980px){.half{grid-column:span 6}.third{grid-column:span 4}}
-    ul,ol{line-height:1.55;margin:8px 0 0 18px}
-    code{background:#111827;border:1px solid #1f2937;padding:2px 6px;border-radius:6px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
-    figure{margin:0;background:#0f1627;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-    figure img{display:block;width:100%;height:160px;object-fit:cover}
-    figure figcaption{padding:8px 10px;font-size:14px;color:var(--muted)}
-    footer{border-top:1px solid var(--border);margin-top:28px}
-    a.link{color:#6dc7ff;text-decoration:none}
-  </style>
+  <link rel="preload" as="image" href="Doc/ondog-hero.jpg" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Oppo Kiss Me — The Galactic Dog Community Token and Next‑Gen Space Mascot</h1>
-      <p class="muted">Community-driven meme token on Solana that merges the appeal of dog tokens with space exploration.</p>
-      <p>
-        <a class="btn" href="https://app.oppokissme.com/" target="_blank" rel="noopener">Swap on app.oppokissme.com</a>
-      </p>
-      <p class="muted">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code></p>
+  <header class="site-header">
+    <div class="container hero">
+      <div class="hero-text">
+        <h1>Oppo Kiss Me — The Galactic Dog Community Token and Next‑Gen Space Mascot</h1>
+        <p class="muted">Community-driven meme token on Solana that merges the appeal of dog tokens with space exploration.</p>
+        <p class="cta-row">
+          <a class="btn" href="https://app.oppokissme.com/" target="_blank" rel="noopener">Swap on app.oppokissme.com</a>
+          <a class="btn ghost" href="https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe" target="_blank" rel="noopener">Dexscreener</a>
+          <a class="btn ghost" href="https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">Solscan</a>
+        </p>
+        <p class="muted">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code></p>
+      </div>
+      <figure class="hero-figure" id="hero-figure">
+        <img src="Doc/ondog-hero.jpg" alt="Ondog hero" loading="eager" onerror="document.getElementById('hero-figure').style.display='none'" />
+      </figure>
     </div>
   </header>
 
@@ -82,26 +71,11 @@
 
     <section class="card" style="margin-top:16px">
       <h2>Collections (Doc/)</h2>
-      <p class="muted">Project media lives under <a class="link" href="Doc/" target="_blank" rel="noopener">Doc/</a>. The gallery below references files directly from Doc/.</p>
-
-      <!-- Görseller doğrudan Doc/ altından çağrılıyor -->
-      <div class="grid">
-        <figure>
-          <img src="Doc/images/collections/space/space-01.jpg" alt="Space 01" />
-          <figcaption>Space 01</figcaption>
-        </figure>
-        <figure>
-          <img src="Doc/images/collections/space/space-02.jpg" alt="Space 02" />
-          <figcaption>Space 02</figcaption>
-        </figure>
-        <figure>
-          <img src="Doc/images/collections/city/city-01.png" alt="City 01" />
-          <figcaption>City 01</figcaption>
-        </figure>
-      </div>
-
-      <!-- Yeni görseller için yukarıdaki <figure> bloklarını kopyalayıp,
-           src="Doc/images/collections/<koleksiyon>/<dosya>" yolunu güncelleyin. -->
+      <p class="muted">
+        All images are loaded automatically from <code>Doc/</code> (no subfolders). Just upload images directly to <code>Doc/</code>.
+        Supported: .jpg, .jpeg, .png, .gif, .webp
+      </p>
+      <div id="collections"></div>
     </section>
 
     <section class="row" style="margin-top:16px">
@@ -110,7 +84,6 @@
         <ul>
           <li><a class="link" href="https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe" target="_blank" rel="noopener">Dexscreener</a></li>
           <li><a class="link" href="https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">Solscan (Token)</a></li>
-          <li><a class="link" href="https://raydium.io/swap/?inputMint=HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz&outputMint=sol&referrer=5qi6MSYLBxhjuR16KajZYUjnbmUwkcwCRhfyNGLUEFSw" target="_blank" rel="noopener">Raydium Swap (CLMM)</a></li>
           <li><a class="link" href="https://solscan.io/token/14kKXADXFv3qtYsTZ34q35AYmf7fJVVHp5svwNYpkYY6" target="_blank" rel="noopener">LP Burn NFT</a></li>
           <li><a class="link" href="https://gopluslabs.io/token-security/solana/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">GoPlus Security</a></li>
         </ul>
@@ -136,5 +109,7 @@
       <p class="muted" style="margin:0">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code> • Swap: <a class="link" href="https://app.oppokissme.com/" target="_blank" rel="noopener">app.oppokissme.com</a></p>
     </div>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
