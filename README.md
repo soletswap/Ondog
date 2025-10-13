@@ -69,3 +69,39 @@ Tip: Always verify the contract address before trading.
 
 - Brand: “Oppo Space” name and logo are protected; usage is governed by the project’s brand policy.
 - Disclaimer: This is a community-driven meme token. Nothing herein is financial advice. Cryptocurrency trading involves risk; do your own research.
+
+---
+
+## Collections (Doc/ Media)
+
+Project media and collections live under the [Doc folder](https://github.com/soletswap/Ondog/tree/main/Doc). Use this structure to organize images:
+
+```
+Doc/
+  ondog-logo.png        # Main logo (optional)
+  ondog-hero.jpg        # Hero image (optional)
+  images/
+    collections/        # Each collection has its own subfolder
+      space/
+        space-01.jpg
+        space-02.jpg
+      city/
+        city-01.png
+```
+
+Guidelines:
+- Add more images by placing them into the relevant collection folder (e.g., `Doc/images/collections/space/`).
+- Use the collection name as a prefix in filenames for consistency (e.g., `space-01.jpg`, `space-02.jpg`).
+- Supported formats: `.jpg/.jpeg/.png/.gif/.webp`.
+
+Usage examples:
+- From README:
+  ```markdown
+  ![Ondog logo](./Doc/ondog-logo.png)
+  ![Space 01](./Doc/images/collections/space/space-01.jpg)
+  ```
+- From an HTML page:
+  ```html
+  <img src="Doc/ondog-logo.png" alt="Ondog logo" />
+  <img src="Doc/images/collections/space/space-01.jpg" alt="Space 01" />
+  ```
