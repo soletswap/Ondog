@@ -4,162 +4,137 @@
   <meta charset="utf-8" />
   <title>Oppo Kiss Me — The Galactic Dog Community Token and Next‑Gen Space Mascot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Oppo Kiss Me is a community-driven meme token on Solana that blends the charm of dog-themed tokens with the thrill of space exploration. Fair launch, burned LP, Raydium CLMM, and multi-pool growth." />
-  <meta property="og:title" content="Oppo Kiss Me — The Galactic Dog Community Token" />
-  <meta property="og:description" content="Fair launch, burned LP, Raydium CLMM, brand protection, multi-pool growth. Join the adventure with Oppo, the next-gen space mascot." />
+  <meta name="description" content="Oppo Kiss Me is a community-driven meme token on Solana. Fair launch, burned LP, Raydium CLMM, multi-pool growth." />
   <meta name="theme-color" content="#0b0f19" />
   <style>
-    :root { --bg:#0b0f19; --panel:#0e1422; --card:#11192b; --text:#e6e8ee; --muted:#9aa4b2; --accent:#1867ff; --accent-2:#17c964; --border:#1e2638; }
-    * { box-sizing:border-box; }
-    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    header { background: linear-gradient(180deg, rgba(24,103,255,0.15), rgba(24,103,255,0) 60%); padding: 40px 0 10px; border-bottom: 1px solid var(--border); }
-    .hero { display:flex; gap:24px; align-items: center; flex-wrap: wrap; }
-    .title { font-size: clamp(24px, 3vw, 36px); margin: 0 0 6px; }
-    .subtitle { color: var(--muted); margin: 0 0 16px; }
-    .cta { display:flex; gap:12px; flex-wrap: wrap; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:10px; text-decoration:none; color:white; background: var(--accent); border: 1px solid #1153d1; font-weight:600; }
-    .btn.secondary { background:#1b2337; border:1px solid var(--border); color:var(--text); }
-    .btn.success { background: var(--accent-2); border-color: #109e4d; }
-    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 28px; }
-    .card { grid-column: span 12; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-    @media (min-width: 980px){
-      .card.half { grid-column: span 6; }
-      .card.third { grid-column: span 4; }
-    }
-    h2 { font-size: 20px; margin: 0 0 10px; }
-    p { margin: 8px 0; line-height: 1.55; }
-    ul { margin: 8px 0 0 18px; line-height: 1.55; }
-    code { background:#111827; padding: 2px 6px; border-radius: 6px; border:1px solid #1f2937; }
-    .kv { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    .copy { display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:8px; background:#121a2c; border:1px solid var(--border); cursor:pointer; }
-    .muted { color: var(--muted); }
-    footer { border-top:1px solid var(--border); margin-top: 32px; }
-    .links a { color:#6dc7ff; text-decoration:none; }
+    :root { --bg:#0b0f19; --panel:#0e1422; --border:#1e2638; --text:#e6e8ee; --muted:#9aa4b2; --accent:#1867ff; }
+    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:linear-gradient(180deg,rgba(24,103,255,.15),rgba(24,103,255,0) 60%);border-bottom:1px solid var(--border);padding:36px 0 12px}
+    h1{margin:0 0 8px;font-size:clamp(24px,3vw,36px)}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:12px 16px;border-radius:10px;border:1px solid #1153d1;font-weight:600}
+    .row{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px}
+    @media(min-width:980px){.half{grid-column:span 6}.third{grid-column:span 4}}
+    ul,ol{line-height:1.55;margin:8px 0 0 18px}
+    code{background:#111827;border:1px solid #1f2937;padding:2px 6px;border-radius:6px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+    figure{margin:0;background:#0f1627;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+    figure img{display:block;width:100%;height:160px;object-fit:cover}
+    figure figcaption{padding:8px 10px;font-size:14px;color:var(--muted)}
+    footer{border-top:1px solid var(--border);margin-top:28px}
+    a.link{color:#6dc7ff;text-decoration:none}
   </style>
 </head>
 <body>
   <header>
-    <div class="container hero">
-      <div style="flex:1; min-width:280px">
-        <h1 class="title">Oppo Kiss Me — The Galactic Dog Community Token and Next‑Gen Space Mascot</h1>
-        <p class="subtitle">Community-driven meme token on Solana that merges the appeal of dog tokens with the excitement of space exploration.</p>
-        <div class="cta">
-          <a class="btn" href="https://app.oppokissme.com/" target="_blank" rel="noopener">Swap on app.oppokissme.com</a>
-          <a class="btn secondary" href="https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe" target="_blank" rel="noopener">View on Dexscreener</a>
-          <a class="btn secondary" href="https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">Solscan</a>
-        </div>
-      </div>
-      <div style="min-width:280px">
-        <p class="muted" style="margin:0 0 6px">Contract Address (Solana)</p>
-        <div class="kv">
-          <code id="ca">HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code>
-          <button class="copy" onclick="copyCA()">Copy</button>
-        </div>
-        <p class="muted" style="margin-top:8px">Wallets: OKX Web3, Phantom, Solflare, Backpack, Binance Web3</p>
-      </div>
+    <div class="container">
+      <h1>Oppo Kiss Me — The Galactic Dog Community Token and Next‑Gen Space Mascot</h1>
+      <p class="muted">Community-driven meme token on Solana that merges the appeal of dog tokens with space exploration.</p>
+      <p>
+        <a class="btn" href="https://app.oppokissme.com/" target="_blank" rel="noopener">Swap on app.oppokissme.com</a>
+      </p>
+      <p class="muted">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code></p>
     </div>
   </header>
 
   <main class="container">
-    <section class="grid">
+    <section class="row">
       <article class="card half">
         <h2>Key Launch and Security Features</h2>
         <ul>
-          <li><strong>Fair Launch:</strong> No presale. Liquidity was added directly to the market at launch.</li>
-          <li><strong>Permanent Liquidity:</strong> The main LP pool was burned at launch, permanently securing liquidity (un-withdrawable).</li>
-          <li><strong>Raydium CLMM Pool:</strong> A Concentrated Liquidity Market Maker pool was launched on Raydium and subsequently burned.</li>
-          <li><strong>Brand Protection:</strong> “Oppo Space” name and logo are officially registered/copyrighted.</li>
-          <li><strong>Multiple Liquidity Pools:</strong> Multiple pools to attract attention and provide diverse trading opportunities.</li>
-          <li><strong>Automatic LP Burn:</strong> Burned tokens are removed from the system irreversibly, reducing supply.</li>
+          <li><strong>Fair Launch:</strong> No presale. Liquidity added directly at launch.</li>
+          <li><strong>Permanent Liquidity:</strong> Main LP burned at launch (un-withdrawable).</li>
+          <li><strong>Raydium CLMM:</strong> CLMM pool launched and burned.</li>
+          <li><strong>Brand Protection:</strong> “Oppo Space” name and logo registered/copyrighted.</li>
+          <li><strong>Multi-Pools:</strong> Multiple pools for attention and diverse trading.</li>
+          <li><strong>Automatic LP Burn:</strong> Burned tokens removed irreversibly from supply.</li>
         </ul>
       </article>
 
       <article class="card half">
-        <h2>Mission: Adventure and Trust</h2>
-        <p>As the new space mascot, Oppo builds a vibrant and trustworthy community through storytelling and continuous interaction.</p>
+        <h2>Mission, Vision, Tokenomics</h2>
         <ul>
-          <li><strong>Community Building:</strong> Share exciting stories about Oppo’s adventures in space.</li>
-          <li><strong>Engaging Content:</strong> Continuous updates on journeys and new missions keep the community involved.</li>
+          <li><strong>Mission:</strong> Build trust via space adventure storytelling and engagement.</li>
+          <li><strong>Vision:</strong> Organic multi-pool growth for long-term, attention-driven liquidity.</li>
+          <li><strong>NFTs:</strong> Rare, free community NFTs depicting Oppo’s adventures.</li>
+          <li><strong>Tokenomics:</strong> Max 10,000,000,000 supply; full supply to LP; deflationary LP burns; no team tokens/presale.</li>
         </ul>
       </article>
+    </section>
 
-      <article class="card half">
-        <h2>Vision and Growth Strategy</h2>
-        <ul>
-          <li><strong>Organic Growth via Multi-Pools:</strong> Organically grow multiple liquidity pools to attract attention and arbitrage opportunities, feeding liquidity.</li>
-          <li><strong>Long-Term Market Position:</strong> A self-sustaining, attention-driven liquidity structure for a lasting presence.</li>
-          <li><strong>Exclusive NFTs:</strong> Rare NFTs of Oppo’s adventures will be created and distributed to the community for free.</li>
-        </ul>
-      </article>
+    <section class="card" style="margin-top:16px">
+      <h2>How to Buy</h2>
+      <ol>
+        <li>Fund your Solana wallet with SOL.</li>
+        <li>Open DEX: <a class="link" href="https://app.oppokissme.com/" target="_blank" rel="noopener">app.oppokissme.com</a></li>
+        <li>Select:
+          <ul>
+            <li>Input: SOL</li>
+            <li>Output: Oppo (Mint: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code>)</li>
+          </ul>
+        </li>
+        <li>Adjust slippage if needed and confirm.</li>
+      </ol>
+      <p class="muted">Tip: Always verify the contract address.</p>
+    </section>
 
-      <article class="card half">
-        <h2>Tokenomics</h2>
-        <ul>
-          <li><strong>Max Supply:</strong> 10,000,000,000 (entire supply was transferred to the LP pool at launch).</li>
-          <li><strong>Deflationary:</strong> Tokens burned in the LP pool are immediately and permanently removed (no burn wallet).</li>
-          <li><strong>Team:</strong> No team allocation, no presale; team can only buy on the market.</li>
-        </ul>
-      </article>
+    <section class="card" style="margin-top:16px">
+      <h2>Collections (Doc/)</h2>
+      <p class="muted">Project media lives under <a class="link" href="Doc/" target="_blank" rel="noopener">Doc/</a>. The gallery below references files directly from Doc/.</p>
 
-      <article class="card">
-        <h2>How to Buy</h2>
-        <ol>
-          <li>Fund your Solana wallet with SOL for gas and swaps.</li>
-          <li>Open the DEX: <a class="links" href="https://app.oppokissme.com/" target="_blank" rel="noopener">app.oppokissme.com</a></li>
-          <li>Select input/output:
-            <ul>
-              <li>Input: SOL</li>
-              <li>Output: Oppo (Mint: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code>)</li>
-            </ul>
-          </li>
-          <li>Adjust slippage if needed and confirm the swap.</li>
-        </ol>
-        <p class="muted">Tip: Always verify the contract address before trading.</p>
-      </article>
+      <!-- Görseller doğrudan Doc/ altından çağrılıyor -->
+      <div class="grid">
+        <figure>
+          <img src="Doc/images/collections/space/space-01.jpg" alt="Space 01" />
+          <figcaption>Space 01</figcaption>
+        </figure>
+        <figure>
+          <img src="Doc/images/collections/space/space-02.jpg" alt="Space 02" />
+          <figcaption>Space 02</figcaption>
+        </figure>
+        <figure>
+          <img src="Doc/images/collections/city/city-01.png" alt="City 01" />
+          <figcaption>City 01</figcaption>
+        </figure>
+      </div>
 
+      <!-- Yeni görseller için yukarıdaki <figure> bloklarını kopyalayıp,
+           src="Doc/images/collections/<koleksiyon>/<dosya>" yolunu güncelleyin. -->
+    </section>
+
+    <section class="row" style="margin-top:16px">
       <article class="card third">
         <h2>Quick Links</h2>
         <ul>
-          <li><a class="links" href="https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe" target="_blank" rel="noopener">Dexscreener</a></li>
-          <li><a class="links" href="https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">Solscan (Token)</a></li>
-          <li><a class="links" href="https://raydium.io/swap/?inputMint=HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz&outputMint=sol&referrer=5qi6MSYLBxhjuR16KajZYUjnbmUwkcwCRhfyNGLUEFSw" target="_blank" rel="noopener">Raydium Swap (Direct CLMM)</a></li>
-          <li><a class="links" href="https://solscan.io/token/14kKXADXFv3qtYsTZ34q35AYmf7fJVVHp5svwNYpkYY6" target="_blank" rel="noopener">Raydium LP Burn NFT</a></li>
-          <li><a class="links" href="https://gopluslabs.io/token-security/solana/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">GoPlus Token Security</a></li>
+          <li><a class="link" href="https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe" target="_blank" rel="noopener">Dexscreener</a></li>
+          <li><a class="link" href="https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">Solscan (Token)</a></li>
+          <li><a class="link" href="https://raydium.io/swap/?inputMint=HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz&outputMint=sol&referrer=5qi6MSYLBxhjuR16KajZYUjnbmUwkcwCRhfyNGLUEFSw" target="_blank" rel="noopener">Raydium Swap (CLMM)</a></li>
+          <li><a class="link" href="https://solscan.io/token/14kKXADXFv3qtYsTZ34q35AYmf7fJVVHp5svwNYpkYY6" target="_blank" rel="noopener">LP Burn NFT</a></li>
+          <li><a class="link" href="https://gopluslabs.io/token-security/solana/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz" target="_blank" rel="noopener">GoPlus Security</a></li>
         </ul>
       </article>
-
       <article class="card third">
         <h2>Socials</h2>
         <ul>
-          <li><a class="links" href="https://x.com/Oppo_community" target="_blank" rel="noopener">X (Twitter) — @Oppo_community</a></li>
-          <li><a class="links" href="https://t.me/oppokissme" target="_blank" rel="noopener">Telegram Channel</a></li>
-          <li><a class="links" href="https://t.me/oppoDog" target="_blank" rel="noopener">Telegram Group</a></li>
+          <li><a class="link" href="https://x.com/Oppo_community" target="_blank" rel="noopener">X (Twitter)</a></li>
+          <li><a class="link" href="https://t.me/oppokissme" target="_blank" rel="noopener">Telegram Channel</a></li>
+          <li><a class="link" href="https://t.me/oppoDog" target="_blank" rel="noopener">Telegram Group</a></li>
         </ul>
       </article>
-
       <article class="card third">
         <h2>Brand & Legal</h2>
-        <p><strong>Brand Protection:</strong> Oppo Space name and logo are registered/copyrighted.</p>
-        <p class="muted">Disclaimer: This is a community-driven meme token. Nothing herein is financial advice. Cryptocurrency trading involves risk; always do your own research.</p>
+        <p><strong>Brand:</strong> “Oppo Space” name and logo are protected.</p>
+        <p class="muted">Disclaimer: Community-driven meme token. Not financial advice.</p>
       </article>
     </section>
   </main>
 
   <footer>
-    <div class="container" style="padding:16px 24px;">
-      <p class="muted" style="margin:0;">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code> • Swap: <a class="links" href="https://app.oppokissme.com/" target="_blank" rel="noopener">app.oppokissme.com</a></p>
+    <div class="container" style="padding:14px 24px">
+      <p class="muted" style="margin:0">CA: <code>HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz</code> • Swap: <a class="link" href="https://app.oppokissme.com/" target="_blank" rel="noopener">app.oppokissme.com</a></p>
     </div>
   </footer>
-
-  <script>
-    function copyCA() {
-      const ca = document.getElementById('ca').textContent.trim();
-      navigator.clipboard.writeText(ca).then(() => {
-        const btns = document.getElementsByClassName('copy');
-        if (btns[0]) { btns[0].textContent = 'Copied!'; setTimeout(() => btns[0].textContent = 'Copy', 1200); }
-      });
-    }
-  </script>
 </body>
 </html>
