@@ -2,15 +2,15 @@
 
 Oppo is a community-driven meme token that blends the charm of dog-themed tokens with the thrill of space exploration. Built for sustainable growth and community engagement, Oppo aims to become the next-generation space mascot — an adventurous saga powered by a secure, transparent, and active community.
 
-- Swap (DEX): https://app.oppokissme.com/
-- Contract (Solana): HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz
-- Dexscreener: https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe
-- Solscan (Token): https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz
-- Raydium LP Burn NFT: https://solscan.io/token/14kKXADXFv3qtYsTZ34q35AYmf7fJVVHp5svwNYpkYY6
-- GoPlus Token Security: https://gopluslabs.io/token-security/solana/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz
-- X (Twitter): https://x.com/Oppo_community
-- Telegram Channel: https://t.me/oppokissme
-- Telegram Group: https://t.me/oppoDog
+- Swap (DEX): [app.oppokissme.com](https://app.oppokissme.com/)
+- Contract (Solana): `HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz`
+- Dexscreener: [Oppo on Dexscreener](https://dexscreener.com/solana/8wrvybxvn6phndilmhrzrgvcjbcqs3ppqgmpbpwlujpe)
+- Solscan (Token): [Oppo on Solscan](https://solscan.io/token/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz)
+- Raydium LP Burn NFT: [LP Burn NFT on Solscan](https://solscan.io/token/14kKXADXFv3qtYsTZ34q35AYmf7fJVVHp5svwNYpkYY6)
+- GoPlus Token Security: [Security Report](https://gopluslabs.io/token-security/solana/HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz)
+- X (Twitter): [@Oppo_community](https://x.com/Oppo_community)
+- Telegram Channel: [t.me/oppokissme](https://t.me/oppokissme)
+- Telegram Group: [t.me/oppoDog](https://t.me/oppoDog)
 
 ---
 
@@ -55,11 +55,10 @@ Supported wallets: OKX Web3 Wallet, Phantom, Solflare, Backpack, Binance Web3 Wa
 ## How to Buy
 
 1. Fund your Solana wallet with SOL for gas and swap.
-2. Open the DEX:
-   - Recommended: https://app.oppokissme.com/
+2. Open the DEX: [app.oppokissme.com](https://app.oppokissme.com/)
 3. Select input/output:
    - Input: SOL
-   - Output: Oppo (Mint: HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz)
+   - Output: Oppo (Mint: `HEadEtLjAFBGqAweLESUR2Qcjoc3U8ekQNvSUSH17gJz`)
 4. Set slippage as needed and confirm the swap.
 
 Tip: Always verify the contract address before trading.
