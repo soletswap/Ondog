@@ -1,185 +1,75 @@
-// Basit yıldız alanı animasyonu
-const canvas = document.getElementById('stars');
-const ctx = canvas.getContext('2d');
-let W, H, stars;
-function resize(){
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-  stars = Array.from({length: Math.min(400, Math.floor(W*H/6000))}, () => ({
-    x: Math.random()*W,
-    y: Math.random()*H,
-    z: Math.random()*1 + .2,
-    a: Math.random()*.5 + .3
-  }));
-}
-function draw(){
-  ctx.clearRect(0,0,W,H);
-  for(const s of stars){
-    ctx.fillStyle = `rgba(255,255,255,${s.a})`;
-    ctx.fillRect(s.x, s.y, s.z*2, s.z*2);
-    s.y += s.z * .35;
-    if(s.y>H){ s.y = -2; s.x = Math.random()*W; }
-  }
-  requestAnimationFrame(draw);
-}
-window.addEventListener('resize', resize);
-resize(); draw();
-
-// Yapışkan başlık için küçük efekt
-let lastY = 0;
-const header = document.querySelector('.site-header');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  header.style.boxShadow = y>10 ? '0 10px 30px rgba(0,0,0,.25)' : 'none';
-  lastY = y;
-});
-
-// Koalisyon filtreleri
-const pills = document.querySelectorAll('.pill');
-const partnerCards = document.querySelectorAll('.partner-card');
-pills.forEach(p => p.addEventListener('click', () => {
-  pills.forEach(x => x.classList.remove('active'));
-  p.classList.add('active');
-  const f = p.dataset.filter;
-  partnerCards.forEach(card => {
-    const keep = f==='all' || card.dataset.tags.includes(f);
-    card.style.display = keep ? '' : 'none';
-  });
-}));
-
-// Koalisyon başvuru formu (demo önizleme)
-const form = document.getElementById('joinForm');
-const preview = document.getElementById('preview');
-form?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(form).entries());
-  preview.hidden = false;
-  preview.innerHTML = `
-    <strong>Başvuru Önizleme</strong>
-    <div style="margin-top:8px">
-      <div><b>Ad:</b> ${data.name}</div>
-      <div><b>Kategori:</b> ${data.category}</div>
-      <div><b>Açıklama:</b> ${data.desc}</div>
-    </div>`;
-  form.reset();
-});
-
-// Basit lightbox
-document.querySelectorAll('.gallery .shot').forEach(a => {
-  a.addEventListener('click', (e) => {
-    e.preventDefault();
-    const src = a.getAttribute('href');
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:50';
-    overlay.innerHTML = `<img src="${src}" style="max-width:90vw;max-height:90vh;border-radius:12px;border:1px solid rgba(255,255,255,.2)"/>`;
-    overlay.addEventListener('click', () => overlay.remove());
-    document.body.appendChild(overlay);
-  });
-});
-
-// Doc tabanlı otomatik galeri
-(async function loadGalleryFromDoc() {
-  const REPO_OWNER = 'soletswap';
-  const REPO_NAME = 'Ondog';
+(function () {
+  // Doc/ içeriğini GitHub API'den okuyup sadece görselleri listele (alt klasör YOK)
+  const OWNER = 'soletswap';
+  const REPO = 'Ondog';
+  const PATH = 'Doc';
   const REF = 'main';
+  const API_URL = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}?ref=${REF}`;
 
-  // Hem Doc kökü hem de isteğe bağlı eski yol desteklenir
-  const CANDIDATE_PATHS = ['Doc', 'Doc/images/collections'];
+  const container = document.getElementById('collections');
+  const IMAGE_RE = /\.(jpe?g|png|gif|webp)$/i;
+  const EXCLUDE = ['README.md']; // Gerekirse buraya hariç tutulacak dosyaları ekleyin
 
-  const gallery = document.getElementById('dynamic-gallery');
-  if (!gallery) return;
+  function createEl(tag, cls) {
+    const el = document.createElement(tag);
+    if (cls) el.className = cls;
+    return el;
+  }
 
-  try {
-    let items = [];
-
-    for (const base of CANDIDATE_PATHS) {
-      const entries = await listDirSafe(base);
-      if (!entries) continue;
-
-      // 1) Kökteki görseller (ör. Doc/*.jpg)
-      for (const e of entries) {
-        if (e.type === 'file' && isImage(e.name)) {
-          items.push({
-            url: e.download_url || toRawUrl(e.path),
-            collection: base.split('/').pop() || 'root',
-            name: e.name
-          });
-        }
-      }
-
-      // 2) Alt klasörlerdeki görseller (ör. Doc/<koleksiyon>/*.jpg veya Doc/images/collections/<koleksiyon>/*.jpg)
-      for (const dir of entries) {
-        if (dir.type !== 'dir') continue;
-        const files = await listDirSafe(`${base}/${dir.name}`);
-        if (!files) continue;
-
-        for (const f of files) {
-          if (f.type === 'file' && isImage(f.name)) {
-            items.push({
-              url: f.download_url || toRawUrl(f.path),
-              collection: dir.name,
-              name: f.name
-            });
-          }
-        }
-      }
+  function render(images) {
+    if (!images.length) {
+      container.innerHTML = '<p class="muted">Doc/ içinde henüz görsel yok. Görselleri doğrudan Doc/ klasörüne yükleyin.</p>';
+      return;
     }
 
-    // Galeriyi inşa et
-    if (items.length > 0) {
-      const noscript = gallery.querySelector('noscript');
-      gallery.innerHTML = '';
-      if (noscript) gallery.appendChild(noscript);
+    const section = createEl('div', 'collection');
+    const h3 = createEl('h3'); h3.textContent = 'Gallery';
+    const grid = createEl('div', 'grid');
 
-      items.sort((a,b) => a.collection.localeCompare(b.collection) || a.name.localeCompare(b.name));
+    images.forEach(file => {
+      const fig = document.createElement('figure');
+      const img = document.createElement('img');
+      const cap = document.createElement('figcaption');
 
-      for (const it of items) {
-        const a = document.createElement('a');
-        a.href = it.url;
-        a.className = 'shot';
-        a.dataset.collection = it.collection;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.src = `Doc/${file.name}`;
+      img.alt = file.name;
 
-        const img = document.createElement('img');
-        img.src = it.url;
-        img.alt = `${it.collection} - ${it.name}`;
-        img.loading = 'lazy';
+      // Kırık görseli gizle
+      img.addEventListener('error', () => { fig.remove(); });
 
-        a.appendChild(img);
-        gallery.appendChild(a);
+      cap.textContent = file.name;
 
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const overlay = document.createElement('div');
-          overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;z-index:50';
-          overlay.innerHTML = `<img src="${it.url}" style="max-width:90vw;max-height:90vh;border-radius:12px;border:1px solid rgba(255,255,255,.2)"/>`;
-          overlay.addEventListener('click', () => overlay.remove());
-          document.body.appendChild(overlay);
-        });
-      }
+      fig.appendChild(img);
+      fig.appendChild(cap);
+      grid.appendChild(fig);
+    });
+
+    section.appendChild(h3);
+    section.appendChild(grid);
+    container.innerHTML = '';
+    container.appendChild(section);
+  }
+
+  async function load() {
+    try {
+      const res = await fetch(`${API_URL}&_=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      // data: [{name, path, type, download_url, ...}, ...]
+      const images = (Array.isArray(data) ? data : [])
+        .filter(e => e && e.type === 'file')
+        .filter(e => IMAGE_RE.test(e.name))
+        .filter(e => !EXCLUDE.includes(e.name))
+        .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
+
+      render(images);
+    } catch (err) {
+      container.innerHTML = '<p class="muted">Doc/ içeriklerini yükleyemedim. Lütfen sayfayı yenileyin (Ctrl/Cmd+Shift+R).</p>';
     }
-  } catch (err) {
-    console.warn('Doc tabanlı galeriyi yükleme hatası:', err);
   }
 
-  function isImage(name) {
-    return /\.(jpg|jpeg|png|gif|webp)$/i.test(name);
-  }
-
-  async function listDir(path) {
-    // Her segmenti encode edin, slash'ları koruyun
-    const encodedPath = path.split('/').map(encodeURIComponent).join('/');
-    const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${encodedPath}?ref=${REF}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`GitHub contents API hata: ${res.status}`);
-    return res.json();
-  }
-
-  async function listDirSafe(path) {
-    try { return await listDir(path); }
-    catch { return null; }
-  }
-
-  function toRawUrl(path) {
-    return `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REF}/${path}`;
-  }
+  load();
 })();
